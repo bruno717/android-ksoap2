@@ -3,4 +3,27 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Menu -->
+    <string name="menu_primario">Dado primário</string>
+    <string name="menu_array_strings">Array de strings</string>
+    <string name="menu_aluno">Aluno</string>
+    <string name="menu_array_alunos">Array de alunos</string>
+
+    <!-- PrimaryData -->
+    <string name="activity_primary_data_activity_text_valor_primario">Valor primário:</string>
+    <string name="activity_primary_data_activity_btn_chamar_servico">Chamar serviço</string>
+
+    <!-- ArrayString -->
+    <string name="activity_array_strings_info">O array que será enviado já está pronto!</string>
+
+    <!-- Aluno -->
+    <string name="activity_aluno_nome">Nome:</string>
+    <string name="activity_aluno_curso">Curso:</string>
+
+
+    <!-- Array de alunos -->
+    <string name="activity_array_alunos_info">O array de alunos que será enviado já está pronto!</string>
+
+
 </resources>
