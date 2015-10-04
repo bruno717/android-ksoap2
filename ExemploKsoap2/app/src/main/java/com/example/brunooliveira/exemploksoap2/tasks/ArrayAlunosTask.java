@@ -44,9 +44,9 @@ public class ArrayAlunosTask extends AsyncTask<Void, Void, Boolean> {
         try {
             SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 
-            /*for (String item : lista) {
-                request.addProperty("lista", item);
-            }*/
+            for (Aluno aluno : lista) {
+                request.addProperty("lista", aluno);
+            }
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.setOutputSoapObject(request);
@@ -54,13 +54,15 @@ public class ArrayAlunosTask extends AsyncTask<Void, Void, Boolean> {
             HttpTransportSE httpTransport = new HttpTransportSE(URL);
             httpTransport.call(SOAP_ACTION, envelope);
 
-            Vector response = (Vector) envelope.getResponse();
-            //mResponse = new String[response.size()];
+            Vector responseVector = (Vector) envelope.getResponse();
 
-            for (int i = 0; i < response.size(); i++) {
+            for (int i = 0; i < responseVector.size(); i++) {
+                SoapObject soapObject = (SoapObject) responseVector.get(i);
                 Aluno aluno = new Aluno();
-                aluno.setId(response);
-                mResponse.add();
+                aluno.setId(Integer.parseInt(soapObject.getProperty("id").toString()));
+                aluno.setNome(soapObject.getProperty("nome").toString());
+                aluno.setCurso(soapObject.getProperty("curso").toString());
+                mResponse.add(aluno);
             }
 
 

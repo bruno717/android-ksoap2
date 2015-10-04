@@ -11,13 +11,41 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/activity_array_alunos_info"
-        android:textColor="@android:color/black"
-        android:textSize="20dp"
-        android:gravity="center"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_aluno_nome"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/aluno_edittext_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_aluno_curso"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/aluno_edittext_curso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 
     <Button
