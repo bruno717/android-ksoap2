@@ -11,7 +11,7 @@ import java.util.Hashtable;
 public class Aluno implements KvmSerializable {
 
     private Integer id;
-    private String name;
+    private String nome;
     private String curso;
 
     @Override
@@ -21,7 +21,7 @@ public class Aluno implements KvmSerializable {
             case 0:
                 return id;
             case 1:
-                return name;
+                return nome;
             case 2:
                 return curso;
         }
@@ -40,7 +40,7 @@ public class Aluno implements KvmSerializable {
                 this.id = Integer.parseInt(value.toString());
                 break;
             case 1:
-                this.name = value.toString();
+                this.nome = value.toString();
                 break;
             case 2:
                 this.curso = value.toString();
@@ -60,7 +60,7 @@ public class Aluno implements KvmSerializable {
                 break;
             case 1:
                 info.type = PropertyInfo.STRING_CLASS;
-                info.name = "name";
+                info.name = "nome";
                 break;
             case 2:
                 info.type = PropertyInfo.STRING_CLASS;
@@ -78,12 +78,12 @@ public class Aluno implements KvmSerializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCurso() {

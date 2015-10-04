@@ -7,21 +7,22 @@ import com.example.brunooliveira.exemploksoap2.config.AccessConfig;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+
+import java.util.Vector;
 
 /**
  * Created by bruno.oliveira on 02/10/2015.
  */
-public class PrimaryDataTask extends AsyncTask<Void, Void, Boolean> {
+public class ArrayStringsTask extends AsyncTask<Void, Void, Boolean> {
 
-    private String data;
-    private String mResponse;
-    private OnReturnServicePrimary mListener;
+    private String[] lista;
+    private String[] mResponse;
+    private OnReturnServiceArrayStrings mListener;
 
-    public PrimaryDataTask(String data, OnReturnServicePrimary mListener) {
-        this.data = data;
+    public ArrayStringsTask(String[] lista, OnReturnServiceArrayStrings mListener) {
+        this.lista = lista;
         this.mListener = mListener;
     }
 
@@ -32,25 +33,31 @@ public class PrimaryDataTask extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... params) {
-        final String METHOD_NAME = "getString";
+        final String METHOD_NAME = "getArrayString";
         final String SOAP_ACTION = AccessConfig.NAMESPACE + METHOD_NAME;
         final String NAMESPACE = AccessConfig.NAMESPACE;
         final String URL = AccessConfig.URL;
 
         try {
             SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-            request.addProperty("texto", data);
+
+            for (String item : lista) {
+                request.addProperty("lista", item);
+            }
 
             SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-            //envelope.dotNet = true;
             envelope.setOutputSoapObject(request);
 
             HttpTransportSE httpTransport = new HttpTransportSE(URL);
             httpTransport.call(SOAP_ACTION, envelope);
 
-            SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
+            Vector response = (Vector) envelope.getResponse();
+            mResponse = new String[response.size()];
 
-            mResponse = response.toString();
+            for (int i = 0; i < response.size(); i++) {
+                mResponse[i] = response.get(i).toString();
+            }
+
 
             return true;
         } catch (Exception e) {
@@ -68,8 +75,8 @@ public class PrimaryDataTask extends AsyncTask<Void, Void, Boolean> {
         }
     }
 
-    public interface OnReturnServicePrimary {
-        public void onCompletion(String response);
+    public interface OnReturnServiceArrayStrings {
+        public void onCompletion(String[] response);
 
         public void onError();
     }

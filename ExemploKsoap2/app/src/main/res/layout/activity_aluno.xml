@@ -23,7 +23,7 @@
             android:textColor="@android:color/black" />
 
         <EditText
-            android:id="@+id/objeto_edittext_nome"
+            android:id="@+id/aluno_edittext_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -41,14 +41,14 @@
             android:textColor="@android:color/black" />
 
         <EditText
-            android:id="@+id/objeto_edittext_curso"
+            android:id="@+id/aluno_edittext_curso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/primary_data_button_chamar_servico"
+        android:id="@+id/aluno_button_chamar_servico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/activity_primary_data_activity_btn_chamar_servico"
@@ -68,9 +68,11 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/objeto_text_nome"
+            android:id="@+id/aluno_text_nome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="5dp"/>
 
     </LinearLayout>
 
@@ -86,9 +88,11 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/objeto_text_curso"
+            android:id="@+id/aluno_text_curso"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="5dp"/>
 
     </LinearLayout>
 
